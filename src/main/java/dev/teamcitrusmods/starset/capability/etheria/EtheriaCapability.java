@@ -14,7 +14,6 @@ import java.util.Random;
 
 public class EtheriaCapability implements IEtheriaCapability {
     private int etheria = -1;
-    private final Random random = new Random();
 
     @Override
     public void setEtheria(int amount) {
@@ -24,7 +23,7 @@ public class EtheriaCapability implements IEtheriaCapability {
     @Override
     public int getEtheriaInChunk() {
         if(this.etheria == -1) {
-            this.etheria = random.nextInt(550, 650);
+            this.etheria = new Random().nextInt(550, 650);
         }
         return this.etheria;
     }
