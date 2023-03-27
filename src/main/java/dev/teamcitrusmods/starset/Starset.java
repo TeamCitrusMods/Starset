@@ -1,8 +1,8 @@
-package dev.teamcitrusmods.fundamentalsincognita;
+package dev.teamcitrusmods.starset;
 
 import com.mojang.logging.LogUtils;
-import dev.teamcitrusmods.fundamentalsincognita.config.FIModConfig;
-import dev.teamcitrusmods.fundamentalsincognita.registry.FIModItems;
+import dev.teamcitrusmods.starset.config.FIModConfig;
+import dev.teamcitrusmods.starset.registry.StarsetModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -14,9 +14,9 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(FundamentalsIncognita.MODID)
-public class FundamentalsIncognita {
-    public static final String MODID = "fundamentalsincognita";
+@Mod(Starset.MODID)
+public class Starset {
+    public static final String MODID = "starset";
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final CreativeModeTab TAB = new CreativeModeTab(MODID) {
         @Override
@@ -25,11 +25,11 @@ public class FundamentalsIncognita {
         }
     };
 
-    public FundamentalsIncognita() {
+    public Starset() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FIModConfig.GENERAL_SPEC);
 
-        FIModItems.ITEMS.register(modEventBus);
+        StarsetModItems.ITEMS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

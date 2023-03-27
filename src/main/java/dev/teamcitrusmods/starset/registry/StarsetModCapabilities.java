@@ -1,10 +1,10 @@
-package dev.teamcitrusmods.fundamentalsincognita.registry;
+package dev.teamcitrusmods.starset.registry;
 
-import dev.teamcitrusmods.fundamentalsincognita.FundamentalsIncognita;
-import dev.teamcitrusmods.fundamentalsincognita.capability.ego.EgoCapability;
-import dev.teamcitrusmods.fundamentalsincognita.capability.ego.IEgoCapability;
-import dev.teamcitrusmods.fundamentalsincognita.capability.etheria.EtheriaCapability;
-import dev.teamcitrusmods.fundamentalsincognita.capability.etheria.IEtheriaCapability;
+import dev.teamcitrusmods.starset.Starset;
+import dev.teamcitrusmods.starset.capability.ego.EgoCapability;
+import dev.teamcitrusmods.starset.capability.ego.IEgoCapability;
+import dev.teamcitrusmods.starset.capability.etheria.EtheriaCapability;
+import dev.teamcitrusmods.starset.capability.etheria.IEtheriaCapability;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -17,8 +17,8 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = FundamentalsIncognita.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class FIModCapabilities {
+@Mod.EventBusSubscriber(modid = Starset.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class StarsetModCapabilities {
     public static final Capability<IEgoCapability> EGO = CapabilityManager.get(new CapabilityToken<>(){});
     public static final Capability<IEtheriaCapability> ETHERIA = CapabilityManager.get(new CapabilityToken<>(){});
 
@@ -31,12 +31,12 @@ public class FIModCapabilities {
     @SubscribeEvent
     public static void attachEntityCaps(AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player) {
-            event.addCapability(new ResourceLocation(FundamentalsIncognita.MODID, "ego"), new EgoCapability.EgoProvider());
+            event.addCapability(new ResourceLocation(Starset.MODID, "ego"), new EgoCapability.EgoProvider());
         }
     }
 
     @SubscribeEvent
     public static void attachChunkCaps(AttachCapabilitiesEvent<LevelChunk> event) {
-        event.addCapability(new ResourceLocation(FundamentalsIncognita.MODID, "etheria"), new EtheriaCapability.EtheriaProvider());
+        event.addCapability(new ResourceLocation(Starset.MODID, "etheria"), new EtheriaCapability.EtheriaProvider());
     }
 }

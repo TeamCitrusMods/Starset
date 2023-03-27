@@ -1,6 +1,6 @@
-package dev.teamcitrusmods.fundamentalsincognita.capability.etheria;
+package dev.teamcitrusmods.starset.capability.etheria;
 
-import dev.teamcitrusmods.fundamentalsincognita.registry.FIModCapabilities;
+import dev.teamcitrusmods.starset.registry.StarsetModCapabilities;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.capabilities.Capability;
@@ -10,8 +10,11 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
+
 public class EtheriaCapability implements IEtheriaCapability {
-    private int etheria = 600;
+    private int etheria = -1;
+    private final Random random = new Random();
 
     @Override
     public void setEtheria(int amount) {
@@ -20,6 +23,9 @@ public class EtheriaCapability implements IEtheriaCapability {
 
     @Override
     public int getEtheriaInChunk() {
+        if(this.etheria == -1) {
+            this.etheria = random.nextInt(550, 650);
+        }
         return this.etheria;
     }
 
@@ -41,7 +47,7 @@ public class EtheriaCapability implements IEtheriaCapability {
 
         @Override
         public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-            return FIModCapabilities.ETHERIA.orEmpty(cap, this.lazyEgo);
+            return StarsetModCapabilities.ETHERIA.orEmpty(cap, this.lazyEgo);
         }
 
         @Override

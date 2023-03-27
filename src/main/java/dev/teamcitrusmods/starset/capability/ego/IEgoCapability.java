@@ -1,4 +1,4 @@
-package dev.teamcitrusmods.fundamentalsincognita.capability.ego;
+package dev.teamcitrusmods.starset.capability.ego;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;

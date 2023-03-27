@@ -1,10 +1,10 @@
-package dev.teamcitrusmods.fundamentalsincognita.registry;
+package dev.teamcitrusmods.starset.registry;
 
 /*
 Being saved for 1.20
  */
 //@Mod.EventBusSubscriber(modid = FundamentalsIncognita.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class FIModCreativeTab {
+public class StarsetModCreativeTab {
     /*
     @SubscribeEvent
     public static void registerCreativeTabs(CreativeModeTabEvent.Register event) {

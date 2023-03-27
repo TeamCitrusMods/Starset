@@ -1,6 +1,6 @@
-package dev.teamcitrusmods.fundamentalsincognita.capability.ego;
+package dev.teamcitrusmods.starset.capability.ego;
 
-import dev.teamcitrusmods.fundamentalsincognita.registry.FIModCapabilities;
+import dev.teamcitrusmods.starset.registry.StarsetModCapabilities;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.capabilities.Capability;
@@ -68,7 +68,7 @@ public class EgoCapability implements IEgoCapability {
 
         @Override
         public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-            return FIModCapabilities.EGO.orEmpty(cap, this.lazyEgo);
+            return StarsetModCapabilities.EGO.orEmpty(cap, this.lazyEgo);
         }
 
         @Override

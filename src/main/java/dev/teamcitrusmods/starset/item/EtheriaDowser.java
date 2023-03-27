@@ -1,7 +1,7 @@
-package dev.teamcitrusmods.fundamentalsincognita.item;
+package dev.teamcitrusmods.starset.item;
 
-import dev.teamcitrusmods.fundamentalsincognita.capability.etheria.IEtheriaCapability;
-import dev.teamcitrusmods.fundamentalsincognita.registry.FIModCapabilities;
+import dev.teamcitrusmods.starset.capability.etheria.IEtheriaCapability;
+import dev.teamcitrusmods.starset.registry.StarsetModCapabilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -24,8 +24,8 @@ public class EtheriaDowser extends Item {
         Player player = context.getPlayer();
 
         if(!level.isClientSide()) {
-            if(chunk.getCapability(FIModCapabilities.ETHERIA).resolve().isPresent()) {
-                IEtheriaCapability cap = chunk.getCapability(FIModCapabilities.ETHERIA).resolve().get();
+            if(chunk.getCapability(StarsetModCapabilities.ETHERIA).resolve().isPresent()) {
+                IEtheriaCapability cap = chunk.getCapability(StarsetModCapabilities.ETHERIA).resolve().get();
                 if(player != null) {
                     player.displayClientMessage(Component.literal("Chunk contains " + cap.getEtheriaInChunk() + " etheria"), true);
                 }

@@ -1,4 +1,4 @@
-package dev.teamcitrusmods.fundamentalsincognita.config;
+package dev.teamcitrusmods.starset.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
