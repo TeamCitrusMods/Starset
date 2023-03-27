@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="MIT License"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+
+[[mods]]
+modId="fundamentalsincognita"
+version="${file.jarVersion}"
+displayName="Fundamentals Incognita"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+logoFile="fundamentalsincognita.png"
+authors="TeamCitrusMods"
+credits="Thanks for this example mod goes to Java"
+description='''
+A Sci-Fi Magic Mod! Explore the Supernatural and peer into the Unknown... Just don't lose yourself to it...
+'''
+
+[[dependencies.fundamentalsincognita]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.fundamentalsincognita]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
