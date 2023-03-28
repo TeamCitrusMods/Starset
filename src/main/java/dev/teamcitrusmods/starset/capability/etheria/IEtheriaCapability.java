@@ -9,4 +9,8 @@ public interface IEtheriaCapability extends INBTSerializable<CompoundTag> {
 
     int getEtheriaInChunk();
 
+    void setRich(boolean value);
+
+    boolean isRich();
+
 }

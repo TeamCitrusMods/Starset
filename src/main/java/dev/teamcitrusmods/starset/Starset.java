@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 @Mod(Starset.MODID)
 public class Starset {
     public static final String MODID = "starset";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static final CreativeModeTab TAB = new CreativeModeTab(MODID) {
         @Override
         public ItemStack makeIcon() {

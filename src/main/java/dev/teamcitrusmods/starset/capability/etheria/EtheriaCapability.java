@@ -14,6 +14,8 @@ import java.util.Random;
 
 public class EtheriaCapability implements IEtheriaCapability {
     private int etheria = -1;
+    private boolean isRich;
+    private final Random random = new Random();
 
     @Override
     public void setEtheria(int amount) {
@@ -23,21 +25,37 @@ public class EtheriaCapability implements IEtheriaCapability {
     @Override
     public int getEtheriaInChunk() {
         if(this.etheria == -1) {
-            this.etheria = new Random().nextInt(550, 650);
+            if(random.nextInt(1, 1001) == 1) {
+                setRich(true);
+                return this.etheria = random.nextInt(900, 1000);
+            }
+            this.etheria = random.nextInt(550, 651);
         }
         return this.etheria;
+    }
+
+    @Override
+    public void setRich(boolean value) {
+        this.isRich = value;
+    }
+
+    @Override
+    public boolean isRich() {
+        return this.isRich;
     }
 
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("etheria", getEtheriaInChunk());
+        tag.putBoolean("rich", isRich());
         return tag;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
         this.etheria = nbt.getInt("etheria");
+        this.isRich = nbt.getBoolean("rich");
     }
 
     public static class EtheriaProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
