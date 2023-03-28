@@ -1,7 +1,7 @@
 package dev.teamcitrusmods.starset;
 
 import com.mojang.logging.LogUtils;
-import dev.teamcitrusmods.starset.config.FIModConfig;
+import dev.teamcitrusmods.starset.config.StarsetModConfig;
 import dev.teamcitrusmods.starset.registry.StarsetModItems;
 import dev.teamcitrusmods.starset.utils.ConfigUtils;
 import net.minecraft.world.item.CreativeModeTab;
@@ -29,7 +29,7 @@ public class Starset {
 
     public Starset() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FIModConfig.GENERAL_SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, StarsetModConfig.GENERAL_SPEC);
 
         modEventBus.addListener(this::commonSetup);
 

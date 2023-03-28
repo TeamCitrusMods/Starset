@@ -2,7 +2,7 @@ package dev.teamcitrusmods.starset.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class FIModConfig {
+public class StarsetModConfig {
     public static final ForgeConfigSpec GENERAL_SPEC;
 
     public static ForgeConfigSpec.IntValue badEgoEffectsMin;
@@ -27,9 +27,9 @@ public class FIModConfig {
         builder.push("Etheria Chunk Config");
         richEtheriaChunkChance = builder.comment("The chance for a rich etheria chunk to spawn. Value is a percent. E.g. 1 is 1% chance to spawn").defineInRange("richEtheriaChunkChance", 1, 1, 100);
         normalEtheriaChunkMin = builder.comment("The value which defines the minimum value that the etheria in a chunk can naturally spawn at").defineInRange("normalEtheriaChunkMin", 550, 1, Integer.MAX_VALUE);
-        normalEtheriaChunkMax = builder.comment("The value which defines the maximum value that the etheria in a chunk can naturally spawn at. THIS VALUE NEEDS TO BE ONE HIGHER THEN WHAT YOU WANT").defineInRange("normalEtheriaChunkMax", 651, 1, Integer.MAX_VALUE);
+        normalEtheriaChunkMax = builder.comment("The value which defines the maximum value that the etheria in a chunk can naturally spawn at. Cannot be smaller than 'normalEtheriaChunkMin'").defineInRange("normalEtheriaChunkMax", 651, 1, Integer.MAX_VALUE);
         richEtheriaChunkMin = builder.comment("The value which defines the minimum value that etheria in a rich chunk can naturally spawn at").defineInRange("richEtheriaChunkMin", 900, 1, Integer.MAX_VALUE);
-        richEtheriaChunkMax = builder.comment("The value which defines the maximum value that etheria in a rich chunk can naturally spawn at. THIS VALUE NEEDS TO BE ONE HIGHER THEN WHAT YOU WANT").defineInRange("richEtheriaChunkMax", 1001, 1, Integer.MAX_VALUE);
+        richEtheriaChunkMax = builder.comment("The value which defines the maximum value that etheria in a rich chunk can naturally spawn at. Cannot be smaller than 'richEtheriaChunkMin'").defineInRange("richEtheriaChunkMax", 1001, 1, Integer.MAX_VALUE);
         builder.pop();
     }
 }
