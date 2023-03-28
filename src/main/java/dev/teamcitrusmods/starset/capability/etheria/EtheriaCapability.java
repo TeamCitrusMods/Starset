@@ -1,5 +1,6 @@
 package dev.teamcitrusmods.starset.capability.etheria;
 
+import dev.teamcitrusmods.starset.config.FIModConfig;
 import dev.teamcitrusmods.starset.registry.StarsetModCapabilities;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -25,11 +26,11 @@ public class EtheriaCapability implements IEtheriaCapability {
     @Override
     public int getEtheriaInChunk() {
         if(this.etheria == -1) {
-            if(random.nextInt(1, 1001) == 1) {
+            if(random.nextInt(FIModConfig.richEtheriaChunkChance.get(), 101) == 1) {
                 setRich(true);
-                return this.etheria = random.nextInt(900, 1000);
+                return this.etheria = random.nextInt(FIModConfig.richEtheriaChunkMin.get(), FIModConfig.richEtheriaChunkMax.get());
             }
-            this.etheria = random.nextInt(550, 651);
+            this.etheria = random.nextInt(FIModConfig.normalEtheriaChunkMin.get(), FIModConfig.normalEtheriaChunkMax.get());
         }
         return this.etheria;
     }
