@@ -2,6 +2,7 @@ package dev.teamcitrusmods.starset;
 
 import com.mojang.logging.LogUtils;
 import dev.teamcitrusmods.starset.config.StarsetModConfig;
+import dev.teamcitrusmods.starset.event.EtheriaCapabilityEvent;
 import dev.teamcitrusmods.starset.registry.StarsetModItems;
 import dev.teamcitrusmods.starset.utils.ConfigUtils;
 import net.minecraft.world.item.CreativeModeTab;
@@ -36,6 +37,7 @@ public class Starset {
         StarsetModItems.ITEMS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new EtheriaCapabilityEvent());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
