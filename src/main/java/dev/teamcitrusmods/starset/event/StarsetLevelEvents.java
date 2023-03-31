@@ -5,7 +5,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class EtheriaCapabilityEvent {
+public class StarsetLevelEvents {
 
     @SubscribeEvent
     public void etheriaTickEvent(TickEvent.LevelTickEvent event) {

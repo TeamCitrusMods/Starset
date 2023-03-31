@@ -16,9 +16,7 @@ import net.minecraftforge.common.world.ForgeChunkManager;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Credit to McJty and his tutorial on SavedData
@@ -27,6 +25,8 @@ import java.util.Random;
 public class EtheriaManager extends SavedData {
     private final Map<ChunkPos, Etheria> etheriaMap = new HashMap<>();
     private final Random random = new Random();
+
+    private Set<BlockPos> chunkUpdate = new HashSet<>();
 
     private int regenCounter = 0;
     private int eveningCounter = 0;
@@ -78,12 +78,8 @@ public class EtheriaManager extends SavedData {
             regenCounter = 3600;
 
             etheriaMap.forEach((chunkPos, etheria) -> {
-                BlockPos pos = chunkPos.getWorldPosition();
-                int etheriaCount = get(level).getEtheria(pos);
-                int etheriaCap = get(level).getCap(pos);
-
-                if (etheriaCount <= etheriaCap) {
-                    get(level).setEtheria(pos, etheriaCount + 1);
+                if (etheria.getEtheria() < etheria.getCap()) {
+                    etheria.setEtheria(etheria.getEtheria() + 1);
                 }
             });
         }
@@ -97,18 +93,25 @@ public class EtheriaManager extends SavedData {
             eveningCounter = 200;
 
             etheriaMap.forEach((chunkPos, etheria) -> {
-                LevelChunk originChunk = level.getChunkAt(chunkPos.getWorldPosition());
-                BlockPos originPos = originChunk.getPos().getWorldPosition();
-
-                if (get(level).getEtheria(originPos) < get(level).getCap(originPos)) {
+                if (etheria.getEtheria() < etheria.getCap()) {
                     LevelChunk northChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX(), 0, chunkPos.getMiddleBlockZ() - 9));
                     BlockPos northPos = northChunk.getPos().getWorldPosition();
 
-                    get(level).drainEtheria(northPos, 1);
-                    get(level).setEtheria(originPos, get(level).getEtheria(originPos) + 1);
+                    chunkUpdate.add(northPos);
+                    Starset.LOGGER.info("Added");
+                    etheria.setEtheria(etheria.getEtheria() + 1);
                 }
             });
 
+            Starset.LOGGER.info(chunkUpdate.toString());
+
+            chunkUpdate.forEach(blockPos -> {
+                Starset.LOGGER.info("Drained neighbours");
+                drainEtheria(blockPos, 1);
+            });
+
+            Starset.LOGGER.info("Cleared");
+            chunkUpdate.clear();
         }
     }
 

@@ -12,8 +12,8 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
 
-public class EtheriaDowser extends Item {
-    public EtheriaDowser(Properties properties) {
+public class ChunkDebugger extends Item {
+    public ChunkDebugger(Properties properties) {
         super(properties);
     }
 
@@ -32,7 +32,7 @@ public class EtheriaDowser extends Item {
 
             if(player != null) {
                 if(!player.isCrouching()) {
-                    player.sendSystemMessage(Component.literal("Chunk Debug")
+                    player.sendSystemMessage(Component.literal("[[Chunk Debug]]")
                             .append("\nChunk ID: " + chunk)
                             .append("\nCentre Pos: X = " + chunkPos.getMiddleBlockX() + ". Z = " + chunkPos.getMiddleBlockZ())
                             .append("\nEtheria in Chunk: " + amount)
