@@ -40,7 +40,7 @@ public class ChunkDebugger extends Item {
                             .append("\nInnate Chunk Etheria Cap: " + cap)
                             .withStyle(ChatFormatting.GREEN));
                 } else {
-                    EtheriaManager.get(level).drainEtheria(pos, 100);
+                    EtheriaManager.get(level).drainEtheria(pos, 10);
                 }
             }
         }

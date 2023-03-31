@@ -21,11 +21,21 @@ public class Etheria {
         this.etheria = etheria;
     }
 
+    public void addEtheria(int amount) {
+        if((this.etheria + amount) <= this.cap) {
+            this.etheria += amount;
+        } else {
+            if (this.etheria != this.cap) {
+                int leftover = this.cap - this.etheria;
+                int left2 = amount - leftover;
+                this.etheria = this.etheria + left2;
+            }
+        }
+    }
+
     public void drainEtheria(int amount) {
         if((this.etheria - amount) >= 0) {
             this.etheria -= amount;
-        } else {
-            Starset.LOGGER.info("Etheria amount of `" + amount + "` could not be drained as it would make Etheria negative");
         }
     }
 

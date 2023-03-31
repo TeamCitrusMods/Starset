@@ -1,6 +1,5 @@
 package dev.teamcitrusmods.starset.world.etheria;
 
-import dev.teamcitrusmods.starset.Starset;
 import dev.teamcitrusmods.starset.config.StarsetModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
-import net.minecraftforge.common.world.ForgeChunkManager;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -26,16 +24,14 @@ public class EtheriaManager extends SavedData {
     private final Map<ChunkPos, Etheria> etheriaMap = new HashMap<>();
     private final Random random = new Random();
 
-    private Set<BlockPos> chunkUpdate = new HashSet<>();
+    private final Set<BlockPos> chunkUpdate = new HashSet<>();
 
     private int regenCounter = 0;
     private int eveningCounter = 0;
 
-    // This constructor is called for a new etheria manager
     public EtheriaManager() {
     }
 
-    // This constructor is called when loading the etheria manager from disk
     public EtheriaManager(CompoundTag tag) {
         ListTag list = tag.getList("etheria", Tag.TAG_COMPOUND);
         for (Tag t : list) {
@@ -51,22 +47,20 @@ public class EtheriaManager extends SavedData {
         if (level.isClientSide) {
             throw new RuntimeException("Don't access this client-side!");
         }
-        // Get the vanilla storage manager from the level
+
         DimensionDataStorage storage = ((ServerLevel)level).getDataStorage();
-        // Get the etheria manager if it already exists. Otherwise, create a new one. Note that both
-        // invocations of EtheriaManager::new actually refer to a different constructor. One without parameters
-        // and the other with a CompoundTag parameter
         return storage.computeIfAbsent(EtheriaManager::new, EtheriaManager::new, "etheriamanager");
     }
 
     @NotNull
     private Etheria getEtheriaInternal(BlockPos pos) {
-        // Get the etheria at a certain chunk. If this is the first time then we fill in the etheriaMap using computeIfAbsent
         ChunkPos chunkPos = new ChunkPos(pos);
+
         if(random.nextInt(StarsetModConfig.richEtheriaChunkChance.get(), 101) == 1) {
             int richAmount = random.nextInt(StarsetModConfig.richEtheriaChunkMin.get(), StarsetModConfig.richEtheriaChunkMax.get() + 1);
             return etheriaMap.computeIfAbsent(chunkPos, cp -> new Etheria(richAmount, true, richAmount));
         }
+
         int amount = random.nextInt(StarsetModConfig.normalEtheriaChunkMin.get(), StarsetModConfig.normalEtheriaChunkMax.get() + 1);
         return etheriaMap.computeIfAbsent(chunkPos, cp -> new Etheria(amount, false, amount));
     }
@@ -79,7 +73,7 @@ public class EtheriaManager extends SavedData {
 
             etheriaMap.forEach((chunkPos, etheria) -> {
                 if (etheria.getEtheria() < etheria.getCap()) {
-                    etheria.setEtheria(etheria.getEtheria() + 1);
+                    etheria.addEtheria(1);
                 }
             });
         }
@@ -89,28 +83,30 @@ public class EtheriaManager extends SavedData {
         eveningCounter--;
 
         if (eveningCounter <= 0) {
-            //eveningCounter = 12000;
-            eveningCounter = 200;
+            eveningCounter = 12000;
 
             etheriaMap.forEach((chunkPos, etheria) -> {
                 if (etheria.getEtheria() < etheria.getCap()) {
                     LevelChunk northChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX(), 0, chunkPos.getMiddleBlockZ() - 9));
+                    LevelChunk eastChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX() + 9, 0, chunkPos.getMiddleBlockZ()));
+                    LevelChunk southChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX(), 0, chunkPos.getMiddleBlockZ() + 8));
+                    LevelChunk westChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX() - 8, 0, chunkPos.getMiddleBlockZ()));
+
                     BlockPos northPos = northChunk.getPos().getWorldPosition();
+                    BlockPos eastPos = eastChunk.getPos().getWorldPosition();
+                    BlockPos southPos = southChunk.getPos().getWorldPosition();
+                    BlockPos westPos = westChunk.getPos().getWorldPosition();
 
                     chunkUpdate.add(northPos);
-                    Starset.LOGGER.info("Added");
-                    etheria.setEtheria(etheria.getEtheria() + 1);
+                    chunkUpdate.add(eastPos);
+                    chunkUpdate.add(southPos);
+                    chunkUpdate.add(westPos);
+
+                    etheria.addEtheria(4);
                 }
             });
 
-            Starset.LOGGER.info(chunkUpdate.toString());
-
-            chunkUpdate.forEach(blockPos -> {
-                Starset.LOGGER.info("Drained neighbours");
-                drainEtheria(blockPos, 1);
-            });
-
-            Starset.LOGGER.info("Cleared");
+            chunkUpdate.forEach(blockPos -> drainEtheria(blockPos, 1));
             chunkUpdate.clear();
         }
     }
@@ -154,6 +150,11 @@ public class EtheriaManager extends SavedData {
 
     public void drainEtheria(BlockPos pos, int amount) {
         getEtheriaInternal(pos).drainEtheria(amount);
+        setDirty();
+    }
+
+    public void addEtheria(BlockPos pos, int amount) {
+        getEtheriaInternal(pos).addEtheria(amount);
         setDirty();
     }
 }
