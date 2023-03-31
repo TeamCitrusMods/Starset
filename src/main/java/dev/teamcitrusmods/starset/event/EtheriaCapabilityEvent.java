@@ -14,6 +14,7 @@ public class EtheriaCapabilityEvent {
         if(!level.isClientSide() && event.phase == TickEvent.Phase.END) {
             EtheriaManager manager = EtheriaManager.get(level);
             manager.regenTick(level);
+            manager.eveningTick(level);
         }
     }
 }

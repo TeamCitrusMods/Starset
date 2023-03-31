@@ -1,5 +1,7 @@
 package dev.teamcitrusmods.starset.world.etheria;
 
+import dev.teamcitrusmods.starset.Starset;
+
 public class Etheria {
     private int etheria;
     private boolean rich;
@@ -17,6 +19,14 @@ public class Etheria {
 
     public void setEtheria(int etheria) {
         this.etheria = etheria;
+    }
+
+    public void drainEtheria(int amount) {
+        if((this.etheria - amount) >= 0) {
+            this.etheria -= amount;
+        } else {
+            Starset.LOGGER.info("Etheria amount of `" + amount + "` could not be drained as it would make Etheria negative");
+        }
     }
 
     public boolean isRich() {

@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
+import net.minecraftforge.common.world.ForgeChunkManager;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -78,11 +79,11 @@ public class EtheriaManager extends SavedData {
 
             etheriaMap.forEach((chunkPos, etheria) -> {
                 BlockPos pos = chunkPos.getWorldPosition();
-                int etheriaCount = EtheriaManager.get(level).getEtheria(pos);
-                int etheriaCap = EtheriaManager.get(level).getCap(pos);
+                int etheriaCount = get(level).getEtheria(pos);
+                int etheriaCap = get(level).getCap(pos);
 
                 if (etheriaCount <= etheriaCap) {
-                    EtheriaManager.get(level).setEtheria(pos, etheriaCount + 1);
+                    get(level).setEtheria(pos, etheriaCount + 1);
                 }
             });
         }
@@ -92,16 +93,27 @@ public class EtheriaManager extends SavedData {
         eveningCounter--;
 
         if (eveningCounter <= 0) {
-            eveningCounter = 12000;
+            //eveningCounter = 12000;
+            eveningCounter = 200;
 
             etheriaMap.forEach((chunkPos, etheria) -> {
-                
+                LevelChunk originChunk = level.getChunkAt(chunkPos.getWorldPosition());
+                BlockPos originPos = originChunk.getPos().getWorldPosition();
+
+                if (get(level).getEtheria(originPos) < get(level).getCap(originPos)) {
+                    LevelChunk northChunk = level.getChunkAt(new BlockPos(chunkPos.getMiddleBlockX(), 0, chunkPos.getMiddleBlockZ() - 9));
+                    BlockPos northPos = northChunk.getPos().getWorldPosition();
+
+                    get(level).drainEtheria(northPos, 1);
+                    get(level).setEtheria(originPos, get(level).getEtheria(originPos) + 1);
+                }
             });
 
         }
     }
 
     @Override
+    @NotNull
     public CompoundTag save(CompoundTag tag) {
         ListTag list = new ListTag();
         etheriaMap.forEach((chunkPos, etheria) -> {
@@ -134,5 +146,9 @@ public class EtheriaManager extends SavedData {
 
     public void setEtheria(BlockPos pos, int etheria) {
         getEtheriaInternal(pos).setEtheria(etheria);
+    }
+
+    public void drainEtheria(BlockPos pos, int amount) {
+        getEtheriaInternal(pos).drainEtheria(amount);
     }
 }
