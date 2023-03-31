@@ -146,9 +146,11 @@ public class EtheriaManager extends SavedData {
 
     public void setEtheria(BlockPos pos, int etheria) {
         getEtheriaInternal(pos).setEtheria(etheria);
+        setDirty();
     }
 
     public void drainEtheria(BlockPos pos, int amount) {
         getEtheriaInternal(pos).drainEtheria(amount);
+        setDirty();
     }
 }
