@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "starset:block/quarter_painted_rhine_panel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "starset:block/quarter_painted_rhine_panel"
+    },
+    "facing=south": {
+      "model": "starset:block/quarter_painted_rhine_panel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "starset:block/quarter_painted_rhine_panel",
+      "y": 270
+    }
+  }
+}

@@ -22,7 +22,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
 
-version = '1.0'
+version = '0.0.3'
 group = 'dev.teamcitrusmods.starset'
 archivesBaseName = 'starset'
 
@@ -110,7 +110,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.8'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("team.lodestar.lodestone:lodestone:1.19.2-2.0.0.86")
+    implementation fg.deobf("team.lodestar.lodestone:lodestone:1.19.2-1.4.53")
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.40')
     compileOnly fg.deobf("com.klikli_dev:modonomicon:1.19.2-1.30.0")
     runtimeOnly fg.deobf("com.klikli_dev:modonomicon:1.19.2-1.30.0")

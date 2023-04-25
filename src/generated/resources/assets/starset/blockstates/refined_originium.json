@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "starset:block/refined_originium_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "starset:block/refined_originium"
+    },
+    "axis=z": {
+      "model": "starset:block/refined_originium_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "starset:block/rhinelabs/painted_rhine_panel",
+    "side": "starset:block/rhinelabs/partially_painted_rhine_panel",
+    "top": "starset:block/rhinelabs/rhine_panel"
+  }
+}

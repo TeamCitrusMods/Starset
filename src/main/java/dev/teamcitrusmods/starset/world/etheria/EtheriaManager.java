@@ -1,6 +1,7 @@
 package dev.teamcitrusmods.starset.world.etheria;
 
 import dev.teamcitrusmods.starset.config.StarsetModConfig;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
+import net.minecraftforge.client.model.IDynamicBakedModel;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;

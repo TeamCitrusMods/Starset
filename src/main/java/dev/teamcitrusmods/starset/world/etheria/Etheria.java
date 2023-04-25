@@ -1,7 +1,5 @@
 package dev.teamcitrusmods.starset.world.etheria;
 
-import dev.teamcitrusmods.starset.Starset;
-
 public class Etheria {
     private int etheria;
     private boolean rich;

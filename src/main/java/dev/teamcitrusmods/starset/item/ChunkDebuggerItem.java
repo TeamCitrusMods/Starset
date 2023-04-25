@@ -12,8 +12,8 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
 
-public class ChunkDebugger extends Item {
-    public ChunkDebugger(Properties properties) {
+public class ChunkDebuggerItem extends Item {
+    public ChunkDebuggerItem(Properties properties) {
         super(properties);
     }
 
@@ -32,12 +32,14 @@ public class ChunkDebugger extends Item {
 
             if(player != null) {
                 if(!player.isCrouching()) {
-                    player.sendSystemMessage(Component.literal("[[Chunk Debug]]")
+                    player.sendSystemMessage(Component.literal("---------------------")
+                            .append("\n[[Chunk Debug]]")
                             .append("\nChunk ID: " + chunk)
                             .append("\nCentre Pos: X = " + chunkPos.getMiddleBlockX() + ". Z = " + chunkPos.getMiddleBlockZ())
                             .append("\nEtheria in Chunk: " + amount)
                             .append("\nIs Rich?: " + rich)
                             .append("\nInnate Chunk Etheria Cap: " + cap)
+                            .append("\n---------------------")
                             .withStyle(ChatFormatting.GREEN));
                 } else {
                     EtheriaManager.get(level).drainEtheria(pos, 10);

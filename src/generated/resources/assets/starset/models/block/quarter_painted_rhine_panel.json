@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "down": "starset:block/rhinelabs/mostly_painted_rhine_panel",
+    "east": "starset:block/rhinelabs/quarter_painted_rhine_panel",
+    "north": "starset:block/rhinelabs/partially_painted_rhine_panel",
+    "particle": "starset:block/rhinelabs/quarter_painted_rhine_panel",
+    "south": "starset:block/rhinelabs/rhine_panel",
+    "up": "starset:block/rhinelabs/rhine_panel",
+    "west": "starset:block/rhinelabs/quarter_painted_rhine_panel_reverse"
+  }
+}

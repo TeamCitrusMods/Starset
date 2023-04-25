@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "starset:block/refined_originium_top",
+    "side": "starset:block/refined_originium"
+  }
+}

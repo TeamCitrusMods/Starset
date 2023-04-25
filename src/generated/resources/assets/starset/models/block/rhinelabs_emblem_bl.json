@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "starset:block/rhinelabs/rhinelabs_emblem_bl",
+    "particle": "starset:block/rhinelabs/rhinelabs_emblem_bl",
+    "side": "starset:block/rhinelabs/rhine_panel",
+    "top": "starset:block/rhinelabs/rhine_panel"
+  }
+}

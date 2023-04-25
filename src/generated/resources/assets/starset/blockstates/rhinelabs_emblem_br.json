@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "starset:block/rhinelabs_emblem_br",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "starset:block/rhinelabs_emblem_br"
+    },
+    "facing=south": {
+      "model": "starset:block/rhinelabs_emblem_br",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "starset:block/rhinelabs_emblem_br",
+      "y": 270
+    }
+  }
+}

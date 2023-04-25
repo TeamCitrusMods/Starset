@@ -6,11 +6,10 @@ license="MIT License"
 [[mods]]
 modId="starset"
 version="${file.jarVersion}"
-displayName="Fundamentals Incognita"
+displayName="Starset"
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 logoFile="starset.png"
 authors="TeamCitrusMods"
-credits="Thanks for this example mod goes to Java"
 description='''
 A Sci-Fi Magic Mod! Explore the Supernatural and peer into the Unknown... Just don't lose yourself to it...
 '''
