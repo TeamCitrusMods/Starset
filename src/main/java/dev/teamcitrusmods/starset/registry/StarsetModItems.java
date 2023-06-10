@@ -55,6 +55,18 @@ public class StarsetModItems {
     public static final RegistryObject<Item> RHODES_PLATING_ITEM = ITEMS.register("rhodes_plating", () -> new BlockItem(StarsetModBlocks.RHODES_PLATING.get(), new Item.Properties().tab(Starset.TAB)));
     public static final RegistryObject<Item> PARTIAL_RHODES_SAFETYMARKING_ITEM = ITEMS.register("partial_rhodes_safetymarking", () -> new BlockItem(StarsetModBlocks.PARTIAL_RHODES_SAFETYMARKING.get(), new Item.Properties().tab(Starset.TAB)));
 
+    public static final RegistryObject<Item> RUNED_STARGAZED_BLOCK_ITEM = ITEMS.register("runed_stargazed_block", () -> new BlockItem(StarsetModBlocks.RUNED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> PARTIALLY_ACTIVE_STARSOIL_ITEM = ITEMS.register("partially_active_starsoil", () -> new BlockItem(StarsetModBlocks.PARTIALLY_ACTIVE_STARSOIL.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> GROOVED_STARGAZED_BLOCK_ITEM = ITEMS.register("grooved_stargazed_block", () -> new BlockItem(StarsetModBlocks.GROOVED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> EXPOSED_STARGAZED_BLOCK_ITEM = ITEMS.register("exposed_stargazed_block", () -> new BlockItem(StarsetModBlocks.EXPOSED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> EMBEDDED_STARGAZED_BLOCK_ITEM = ITEMS.register("embedded_stargazed_block", () -> new BlockItem(StarsetModBlocks.EMBEDDED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> CIRCUITED_STARGAZED_BLOCK_ITEM = ITEMS.register("circuited_stargazed_block", () -> new BlockItem(StarsetModBlocks.CIRCUITED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> ARKED_STARGAZED_BLOCK_ITEM = ITEMS.register("arked_stargazed_block", () -> new BlockItem(StarsetModBlocks.ARKED_STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> ACTIVE_STARSOIL_ITEM = ITEMS.register("active_starsoil", () -> new BlockItem(StarsetModBlocks.ACTIVE_STARSOIL.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> STARSOIL_ITEM = ITEMS.register("starsoil", () -> new BlockItem(StarsetModBlocks.STARSOIL.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> STARGAZED_TILES_BLOCK_ITEM = ITEMS.register("stargazed_tiles_block", () -> new BlockItem(StarsetModBlocks.STARGAZED_TILES_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+    public static final RegistryObject<Item> STARGAZED_BLOCK_ITEM = ITEMS.register("stargazed_block", () -> new BlockItem(StarsetModBlocks.STARGAZED_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
+
     public static final RegistryObject<Item> ORUNDUM_BLOCK_ITEM = ITEMS.register("orundum_block", () -> new BlockItem(StarsetModBlocks.ORUNDUM_BLOCK.get(), new Item.Properties().tab(Starset.TAB)));
     public static final RegistryObject<Item> ORIGINITE_PRIME_ITEM = ITEMS.register("originite_prime", () -> new BlockItem(StarsetModBlocks.ORIGINITE_PRIME.get(), new Item.Properties().tab(Starset.TAB)));
     public static final RegistryObject<Item> INACTIVE_ORIGINIUM_ITEM = ITEMS.register("inactive_originium", () -> new BlockItem(StarsetModBlocks.INACTIVE_ORIGINIUM.get(), new Item.Properties().tab(Starset.TAB)));

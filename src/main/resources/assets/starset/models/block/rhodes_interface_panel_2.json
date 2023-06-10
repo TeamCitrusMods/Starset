@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "starset:block/rhodes_island/hologram_transparent",
 		"1": "starset:block/rhodes_island/hologram",
-		"2": "starset:block/rhodes_island/rhodes_interface_panel_1",
+		"2": "starset:block/rhodes_island/rhodes_interface_panel_2",
 		"3": "starset:block/rhodes_island/tiled_rhodes_plating",
 		"particle": "starset:block/rhodes_island/hologram_transparent"
 	},

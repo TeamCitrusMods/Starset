@@ -57,6 +57,18 @@ public class StarsetModBlocks {
     public static final RegistryObject<Block> RHODES_PLATING = BLOCKS.register("rhodes_plating", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PARTIAL_RHODES_SAFETYMARKING = BLOCKS.register("partial_rhodes_safetymarking", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> RUNED_STARGAZED_BLOCK = BLOCKS.register("runed_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PARTIALLY_ACTIVE_STARSOIL = BLOCKS.register("partially_active_starsoil", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> GROOVED_STARGAZED_BLOCK = BLOCKS.register("grooved_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> EXPOSED_STARGAZED_BLOCK = BLOCKS.register("exposed_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> EMBEDDED_STARGAZED_BLOCK = BLOCKS.register("embedded_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CIRCUITED_STARGAZED_BLOCK = BLOCKS.register("circuited_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ARKED_STARGAZED_BLOCK = BLOCKS.register("arked_stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ACTIVE_STARSOIL = BLOCKS.register("active_starsoil", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> STARSOIL = BLOCKS.register("starsoil", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> STARGAZED_TILES_BLOCK = BLOCKS.register("stargazed_tiles_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> STARGAZED_BLOCK = BLOCKS.register("stargazed_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> ORUNDUM_BLOCK = BLOCKS.register("orundum_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> ORIGINITE_PRIME = BLOCKS.register("originite_prime", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> INACTIVE_ORIGINIUM = BLOCKS.register("inactive_originium", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2.0f).requiresCorrectToolForDrops()));

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "starset:block/rhodes_partial_safetymarking"
+    }
+  }
+}
