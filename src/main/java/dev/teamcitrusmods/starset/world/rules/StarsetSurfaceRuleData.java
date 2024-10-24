@@ -10,6 +10,7 @@ public class StarsetSurfaceRuleData {
     private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
     private static final SurfaceRules.RuleSource RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
     private static final SurfaceRules.RuleSource BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
+    private static final SurfaceRules.RuleSource COAL_BLOCK = makeStateRule(Blocks.COAL_BLOCK);
 
     public static SurfaceRules.RuleSource makeRules()
     {
@@ -17,8 +18,9 @@ public class StarsetSurfaceRuleData {
         SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
 
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(StarsetBiomes.HOT_RED), RED_TERRACOTTA),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(StarsetBiomes.COLD_BLUE), BLUE_TERRACOTTA),
+                //SurfaceRules.ifTrue(SurfaceRules.isBiome(StarsetBiomes.HOT_RED), RED_TERRACOTTA),
+                //SurfaceRules.ifTrue(SurfaceRules.isBiome(StarsetBiomes.COLD_BLUE), BLUE_TERRACOTTA),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(StarsetBiomes.ORIGINIUM), COAL_BLOCK),
 
                 // Default to a grass and dirt surface
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, grassSurface)

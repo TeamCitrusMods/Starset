@@ -8,11 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
-import terrablender.api.ParameterUtils.*;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class StarsetRegion extends Region {
@@ -23,8 +21,9 @@ public class StarsetRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
-            builder.replaceBiome(Biomes.DESERT, StarsetBiomes.HOT_RED);
+            //builder.replaceBiome(Biomes.DESERT, StarsetBiomes.HOT_RED);
 
+            /*
             List<Climate.ParameterPoint> frozenPeaksPoints = new ParameterPointListBuilder()
                     .temperature(Temperature.ICY, Temperature.COOL, Temperature.NEUTRAL)
                     .humidity(Humidity.ARID, Humidity.DRY, Humidity.NEUTRAL, Humidity.WET, Humidity.HUMID)
@@ -35,6 +34,10 @@ public class StarsetRegion extends Region {
                     .build();
 
             frozenPeaksPoints.forEach(point -> builder.replaceBiome(point, StarsetBiomes.COLD_BLUE));
+             */
+
+            builder.replaceBiome(Biomes.PLAINS, StarsetBiomes.ORIGINIUM);
         });
+
     }
 }

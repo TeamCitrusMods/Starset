@@ -19,12 +19,15 @@ import java.util.function.Supplier;
 public class StarsetBiomes {
     public static DeferredRegister<Biome> BIOME_REGISTER = DeferredRegister.create(Registry.BIOME_REGISTRY, Starset.MODID);
 
-    public static final ResourceKey<Biome> HOT_RED = register("hot_red");
-    public static final ResourceKey<Biome> COLD_BLUE = register("cold_blue");
+    //public static final ResourceKey<Biome> HOT_RED = register("hot_red");
+    //public static final ResourceKey<Biome> COLD_BLUE = register("cold_blue");
+
+    public static final ResourceKey<Biome> ORIGINIUM = register("originium");
 
     public static void registerBiomes() {
-        register(HOT_RED, StarsetBiomes::hotRed);
-        register(COLD_BLUE, StarsetBiomes::coldBlue);
+        //register(HOT_RED, StarsetBiomes::hotRed);
+        //register(COLD_BLUE, StarsetBiomes::coldBlue);
+        register(ORIGINIUM, StarsetBiomes::originium);
     }
 
     public static RegistryObject<Biome> register(ResourceKey<Biome> key, Supplier<Biome> biomeSupplier) {
@@ -98,5 +101,17 @@ public class StarsetBiomes {
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
         return biome(Biome.Precipitation.SNOW, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
+    public static Biome originium()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+
+        return biome(Biome.Precipitation.RAIN, 1.0f, 0.5f, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 }
